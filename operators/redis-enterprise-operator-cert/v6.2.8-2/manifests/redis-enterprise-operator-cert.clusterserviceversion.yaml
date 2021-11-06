@@ -444,6 +444,17 @@ spec:
           verbs:
           - use
         serviceAccountName: rec
+      clusterPermissions:
+      - rules:
+        - apiGroups:
+          - security.openshift.io
+          resourceNames:
+          - redis-enterprise-scc
+          resources:
+          - securitycontextconstraints
+          verbs:
+          - use
+        serviceAccountName: rec
     strategy: deployment
   webhookdefinitions:
   - generateName: redb.admission.redislabs
